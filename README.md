@@ -1,4 +1,3 @@
-# aop_basic_tech
 > AOP为Aspect Oriented Programming的缩写，意为：面向切面编程。利用AOP可以对业务逻辑的各个部分进行隔离，从而使得业务逻辑各部分之间的耦合度降低，提高程序的可重用性，同时提高了开发的效率
 
 ### 应用场景
@@ -49,7 +48,7 @@ public class Client {
     }
 }
 ```
-![image](E:/%E8%AE%B2%E8%AF%BE/client.jpg)
+![image](https://imgchr.com/i/ebIptA)
 
 
 
@@ -101,7 +100,7 @@ public class Client1 {
     }
 }
 ```
-![image](E:/%E8%AE%B2%E8%AF%BE/client1.jpg)
+![image](https://imgchr.com/i/ebIptA)
 
 这种写死代码的方式，如果类文件多至几百个，那么就需要改几百处代码。同时，如果我们引用的是第三方jar，这个时候我们根本就不能改变第三方的jar。
 
@@ -147,7 +146,7 @@ public class Client2 {
     }
 }
 ```
-![image](E:/%E8%AE%B2%E8%AF%BE/client2.jpg)
+![image](https://imgchr.com/i/ebIPpt)
 
 我们通过给greeting接口提供一个静态代理GreetingStaticProxy成功的解决了写死代码的问题，但是如果接口增多，比如增加一个Complain接口，那么就需要增加一个ComplainStaticProxy。最终XxxxStaticProxy类会越来越多。如何才能让这些代理类尽可能的减少？最好只有一个代理类，我们可以用JDK的动态代理。
 
@@ -192,7 +191,7 @@ public class Client3 {
     }
 }
 ```
-![image](E:/%E8%AE%B2%E8%AF%BE/client3.jpg)
+![image](https://imgchr.com/i/ebIi1P)
 
 及时增加了很多Greeting之外的接口，我们都可以通过DynamicProxy一个代理类来进行代理。但是这样做仍然存在一个问题，就是JDK提供的代理类只能代理接口，而不能代理没有接口的类。有什么方案可以解决这个问题么？
 
@@ -231,7 +230,7 @@ public class Client4 {
     }
 }
 ```
+![image](https://imgchr.com/i/ebTyYd)
 通过Cglib代理可以实现对所有类的代理，能够很好的解决我们的问题。JDK代理和Cglib是Spring AOP框架的核心。Spring里边有个事务注解@Transactional 的原理也就是在方法前connection.setAutoCommit(false)，然后在方法或connection.commit()来保证方法的事务的原子性。其中的技术也就是运用了JDK的动态代理和Cglib代理。
-
 
 
