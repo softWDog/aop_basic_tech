@@ -17,9 +17,9 @@ import java.lang.reflect.Method;
 public class CglibDynamicProxy {
     public static <T> T createProxy(Class<T> tClass) {
         return (T) Enhancer.create(tClass, new MethodInterceptor() {
-            public Object intercept(Object targerObject, Method method, Object[] params, MethodProxy methodProxy) throws Throwable {
+            public Object intercept(Object targetObject, Method method, Object[] params, MethodProxy methodProxy) throws Throwable {
                 before();
-                Object result = methodProxy.invokeSuper(targerObject, params);
+                Object result = methodProxy.invokeSuper(targetObject, params);
                 after();
                 return result;
             }
