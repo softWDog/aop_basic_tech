@@ -1,4 +1,4 @@
-package com.gethin.method5;
+package com.gethin.method6;
 /**
  * cglib责任链设计模式
  * */

@@ -1,4 +1,4 @@
-package com.gethin.method5;
+package com.gethin.method6;
 
 import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.MethodInterceptor;
